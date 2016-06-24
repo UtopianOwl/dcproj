@@ -1,0 +1,51 @@
+form.container {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  padding: 3%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+form.container > div > h1 {
+  color: white;
+  font-size: 3em;
+}
+
+hr {
+  border-color: white;
+}
+
+.row {
+  width: 100%;
+}
+
+.row label {
+  color: white;
+}
+
+.col-50 {
+  display: inline-block;
+  width: 50%;
+}
+
+.col-33 {
+  display: inline-block;
+  width: 33%;
+}
+
+.form-control {
+  width: 90%;
+  margin: auto;
+}
+
+.btn-submit {
+  height: 40px;
+  width: 75px;
+  font-size: 1.15em;
+  padding: auto;
+  border-radius: 10px;
+  background-color: rgb(104, 198, 116);
+  border: 0;
+  color: white;
+  box-shadow: 1px 1px 1px 1px rgb(52, 52, 52);
+}

@@ -1,0 +1,66 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.hcenter {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(217, 211, 170)
+}
+
+#content form {
+  margin-top: 20px;
+}
+
+form div div {
+  display: inline-block;
+}
+
+#content {
+  height: 90%;
+  width: 100%;
+  margin: 0;
+  padding: auto;
+}
+
+.img-responsive {
+  height: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 5px;
+  height: 30px;
+  padding: 7px;
+  font-size: 1.25em;
+}
+
+.col-33 {
+  width: 33%;
+  display: inline-block;
+  height: 100%;
+}
+
+.col-66 {
+  width: 60%;
+  height: 100%;
+  display: inline-block;
+}
+
+.col-50 {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+}

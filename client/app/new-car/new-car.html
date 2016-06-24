@@ -1,0 +1,47 @@
+<!-- Show this cool preview image if the user specifies an image URL -->
+<img ng-if="vm.car.imageUrl" ng-src="{{vm.car.imageUrl}}" style="float: right; width: 7em;"/>
+<div class="page-header">
+    <h1>
+        <i class="fa fa-plus"></i> New Car
+    </h1>
+</div>
+<div class="alert alert-danger centered" ng-if="vm.error">
+    Could not create your car. Whoops! Make sure all fields are filled correctly.
+</div>
+<div class="alert alert-success centered" ng-if="vm.success">
+    Successfully created your car! Congrats!
+    <br/>
+    Click <a href="/cars">here</a> to see your cars!
+</div>
+<form ng-if="!vm.success" ng-submit="vm.createCar()">
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-camera"></i>
+        </span>
+        <input ng-model="vm.car.imageUrl" type="text" class="form-control" placeholder="Link to Image of Car">
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-car"></i>
+        </span>
+        <input ng-model="vm.car.brand" type="text" class="form-control" placeholder="Brand (ex. Mazda, Lamborghini)">
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-font"></i>
+        </span>
+        <input ng-model="vm.car.model" type="text" class="form-control" placeholder="Model (ex. CX-9, Aventador)">
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </span>
+        <!-- Minimum year is 1886, as that's when cars were invented ;D -->
+        <input min="1886" max="{{vm.maxYear}}" ng-model="vm.car.year" type="number" class="form-control" placeholder="Model Year">
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">OK</button>
+</form>

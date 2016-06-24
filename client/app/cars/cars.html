@@ -1,0 +1,29 @@
+<a href="/new-car" class="btn btn-primary right floated">
+    <i class="fa fa-plus"></i> Create New
+</a>
+<div class="page-header">
+    <h1>
+        <i class="fa fa-car"></i> My Cars
+    </h1>
+</div>
+<div class="alert alert-danger centered" ng-if="vm.error">
+    Could not load your cars.
+</div>
+<div class="alert alert-info centered" ng-if="!vm.cars.length">
+    You have not created any cars.
+    <br>
+    <a href="/new-car">Click here</a> to create your first.
+</div>
+<div class="row" ng-if="vm.cars.length">
+    <div class="col-xs-12 col-md-4" ng-repeat="car in vm.cars">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{car.brand}} {{car.model}} ({{car.year}})
+                <i class="fa fa-trash" ng-click="vm.deleteCar(car)" style="cursor: pointer; float: right"></i>
+            </div>
+            <div class="panel-body centered">
+                <img style="height: 10em;" ng-src="{{car.imageUrl}}">
+            </div>
+        </div>
+    </div>
+</div>

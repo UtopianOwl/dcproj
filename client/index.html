@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>DreamcarApp</title>
+    <base href="/" />
+    <!-- <link rel="stylesheet" href="/client/assets/bootswatch/slate.min.css"> -->
+    <link rel="stylesheet" href="/client/shared/site.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="/client/css/style.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+    </style>
+</head>
+
+<body>
+    <br><br>
+    <script src="/client/js/jquery.js"></script>
+    <script src="/client/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/client/app/app.js"></script>
+    <script src="/client/app/main/main.module.js"></script>
+    <script src="/client/app/main/main.controller.js"></script>
+    <script src="/client/app/cars/cars.module.js"></script>
+    <script src="/client/app/cars/cars.service.js"></script>
+    <script src="/client/app/cars/cars.controller.js"></script>
+    <script src="/client/app/new-car/new-car.module.js"></script>
+    <script src="/client/app/new-car/new-car.controller.js"></script>
+    <script src="/client/app/users/user.module.js"></script>
+    <script src="/client/shared/authInterceptor.js"></script>
+    <script src="/client/components/navbar/navbar.directive.js"></script>
+    <script src="/client/components/navbar/navbar.controller.js"></script>
+    <script src="/client/app/users/user.service.js"></script>
+    <script src="/client/app/users/register/user.register.controller.js"></script>
+    <script src="/client/app/users/login/user.login.controller.js"></script>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Dream Cars 2016</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" ng-if="!user">
+                    <li>
+                        <a href="/register">Register</a>
+                    </li>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-if="user">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i> {{user.username}}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cars">
+                                    <i class="fa fa-car"></i>
+                                    View my Cars
+                                </a>
+                                <a href="/new-car">
+                                    <i class="fa fa-plus"></i>
+                                    Create a Car
+                                </a>
+                                <a href="/logout">
+                                    <i class="fa fa-sign-out"></i>
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <br>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <navbar></navbar>
+    <div ui-view="" id="content"></div>
+</body>
+
+</html>
