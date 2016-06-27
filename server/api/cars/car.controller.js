@@ -44,7 +44,7 @@ function create(req, res, next) {
 exports.create = create;
 function update(req, res, next) {
     console.log(req.body);
-    car_model_1.Car.findByIdUpdate(req.params.id, req.body, { new: true }, function (err, result) {
+    car_model_1.Car.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (err, result) {
         if (err)
             return next(err);
         if (!result)

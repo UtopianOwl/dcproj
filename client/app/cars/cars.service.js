@@ -31,7 +31,7 @@ var app;
             return q.promise;
         };
         CarsService.prototype.editCar = function (car) {
-            return this.$http.put("/api/v1/car/" + car._id).then(function (response) {
+            return this.$http.put("/api/v1/cars/" + car._id, car).then(function (response) {
                 return response.data;
             });
         }
