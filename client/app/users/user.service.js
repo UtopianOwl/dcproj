@@ -47,6 +47,19 @@ var app;
             });
             return q.promise;
         };
+        UserService.prototype.changePassword = function (u, password) {
+            var _this = this;
+            u.password = password;
+            var q = this.$q.defer();
+            this.$http.put('/api/v1/users/' + u._id + '/change-password', u).then(function (res) {
+                _this.setToken(res.data['token']);
+                _this.setUser();
+                q.resolve();
+            }, function (err) {
+                q.reject(err);
+            });
+            return q.promise;
+        }
         UserService.prototype.logout = function () {
             this.$window.localStorage.removeItem('token');
             this.status._id = '';
@@ -66,24 +79,24 @@ var app;
         UserService.prototype.urlBase64Decode = function (str) {
             var output = str.replace(/-/g, '+').replace(/_/g, '/');
             switch (output.length % 4) {
-                case 0:
-                    {
-                        break;
-                    }
-                case 2:
-                    {
-                        output += '==';
-                        break;
-                    }
-                case 3:
-                    {
-                        output += '=';
-                        break;
-                    }
-                default:
-                    {
-                        throw 'Illegal base64url string!';
-                    }
+            case 0:
+                {
+                    break;
+                }
+            case 2:
+                {
+                    output += '==';
+                    break;
+                }
+            case 3:
+                {
+                    output += '=';
+                    break;
+                }
+            default:
+                {
+                    throw 'Illegal base64url string!';
+                }
             }
             return decodeURIComponent(encodeURIComponent(this.$window.atob(output)));
         };
