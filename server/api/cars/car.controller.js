@@ -43,12 +43,13 @@ function create(req, res, next) {
 }
 exports.create = create;
 function update(req, res, next) {
-    car_model_1.Car.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, function (err, result) {
+    console.log(req.body);
+    car_model_1.Car.findByIdUpdate(req.params.id, req.body, { new: true }, function (err, result) {
         if (err)
             return next(err);
         if (!result)
             return next({ status: 404, message: "Could not find the requested car." });
-        res.json(result);
+        res.send(result);
     });
 }
 exports.update = update;

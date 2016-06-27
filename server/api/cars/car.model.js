@@ -5,6 +5,7 @@ var carSchema = new mongoose.Schema({
     model: { type: String, required: true },
     imageUrl: { type: String, required: true },
     year: { type: String, required: true },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    editToggle: { type: Boolean, default: false, required: true }
 });
 exports.Car = mongoose.model('Car', carSchema);

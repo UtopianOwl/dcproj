@@ -30,6 +30,11 @@ var app;
             this.$http.delete("/api/v1/cars/" + id).then(function () { return q.resolve(); }).catch(function (err) { return q.reject(err); });
             return q.promise;
         };
+        CarsService.prototype.editCar = function (car) {
+            return this.$http.put("/api/v1/car/" + car._id).then(function (response) {
+                return response.data;
+            });
+        }
         return CarsService;
     }());
     app.CarsService = CarsService;

@@ -34,6 +34,16 @@ var app;
                 });
             }
         };
+        CarsController.prototype.editCar = function (car) {
+            var _this = this;
+            car.editToggle = false;
+            this.service.editCar(car).then(function (Car) {
+                for (var i = 0; i < _this.cars.length; i++) {
+                    if (_this.cars[i]._id === Car._id)
+                        _this.cars[i] = Car;
+                }
+            })
+        };
         return CarsController;
     }());
     app.CarsController = CarsController;

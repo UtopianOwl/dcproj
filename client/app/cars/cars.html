@@ -16,13 +16,46 @@
 </div>
 <div class="row" ng-if="vm.cars.length">
     <div class="col-xs-12 col-md-4" ng-repeat="car in vm.cars">
-        <div class="panel panel-default">
+        <div class="panel panel-default" ng-hide="car.editToggle">
             <div class="panel-heading">
                 {{car.brand}} {{car.model}} ({{car.year}})
+                <i class="fa fa-pencil" ng-click="car.editToggle = true" style="cursor: pointer; float: right"></i>
                 <i class="fa fa-trash" ng-click="vm.deleteCar(car)" style="cursor: pointer; float: right"></i>
+
             </div>
             <div class="panel-body centered">
                 <img style="height: 10em;" ng-src="{{car.imageUrl}}">
+            </div>
+        </div>
+        <div class="panel panel-default" ng-show="car.editToggle">
+            <div class="panel-heading">
+                Edit Car:
+            </div>
+            <div class="panel-body">
+                <form ng-if="!vm.success" novalidate>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-camera"></i></span>
+                        <input ng-model="car.imageUrl" type="text" class="form-control" placeholder="Link to Image of Car">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                        <input ng-model="car.brand" type="text" class="form-control" placeholder="Brand (ex. Mazda, Lamborghini)">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-font"></i></span>
+                        <input ng-model="car.model" type="text" class="form-control" placeholder="Model (ex. CX-9, Aventador)">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <!-- Minimum year is 1886, as that's when cars were invented ;D -->
+                        <input min="1886" max="{{vm.maxYear}}" ng-model="car.year" type="number" class="form-control" placeholder="Model Year">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" ng-click="vm.editCar(car)">OK</button>
+                </form>
             </div>
         </div>
     </div>
